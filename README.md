@@ -1,2 +1,2 @@
-# ds
-An opinionated uber design system implementation with KMP
+# DS
+An opinionated uber design system project targeting Android, iOS, Desktop.
