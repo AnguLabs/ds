@@ -47,6 +47,7 @@ kotlin {
             dependencies {
                 implementation(projects.design)
                 implementation(libs.feather.icons)
+                implementation(libs.voyager.navigator)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)

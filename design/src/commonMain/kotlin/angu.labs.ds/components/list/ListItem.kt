@@ -139,7 +139,7 @@ public fun ListItem(
                 }
                 if (textContent.supportParagraph != null) {
                     DsText(
-                        text = textContent.supportParagraph.uppercase(),
+                        text = textContent.supportParagraph.capitalize(),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(top = type.spaceBetweenLines, bottom = itemPadding),
@@ -231,7 +231,7 @@ private fun TextItem(
     ) {
         DsText(
             modifier = Modifier.fillMaxWidth(),
-            text = text.orEmpty().uppercase(),
+            text = text.orEmpty().capitalize(),
             typography = DsTypography.Label.medium,
             textAlign = textAlign,
             contentColor = DsTheme.colors.contentPrimary,
@@ -239,7 +239,7 @@ private fun TextItem(
         )
         if (paragraph != null) {
             DsText(
-                text = paragraph.uppercase(),
+                text = paragraph.capitalize(),
                 modifier = Modifier.fillMaxWidth().padding(top = spaceBetweenLines),
                 typography = DsTypography.Paragraph.small,
                 textAlign = textAlign,
