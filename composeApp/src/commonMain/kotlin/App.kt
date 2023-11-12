@@ -1,39 +1,58 @@
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
+import angu.labs.ds.components.button.DsButton
+import angu.labs.ds.components.button.ButtonHierarchy
+import angu.labs.ds.components.button.ButtonShape
+import angu.labs.ds.theme.DsTheme
+import angu.labs.ds.tokens.DsIcons
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.ArrowLeft
+import compose.icons.feathericons.Check
+import compose.icons.feathericons.ChevronDown
+import compose.icons.feathericons.ChevronLeft
+import compose.icons.feathericons.ChevronUp
+import compose.icons.feathericons.ChevronsRight
+import compose.icons.feathericons.Minus
+import compose.icons.feathericons.Square
+import compose.icons.feathericons.X
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
-    MaterialTheme {
-        var greetingText by remember { mutableStateOf("Hello World!") }
-        var showImage by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = {
-                greetingText = "Compose: ${Greeting().greet()}"
-                showImage = !showImage
-            }) {
-                Text(greetingText)
-            }
-            AnimatedVisibility(showImage) {
-                Image(
-                    painterResource("compose-multiplatform.xml"),
-                    null
+    DsTheme(icons = defaultIcons) {
+        Column {
+            components.forEach {
+                DsButton(
+                    text = it,
+                    type = ButtonShape.Rect(),
+                    hierarchy = ButtonHierarchy.Tertiary,
+                    onClick = { }
                 )
             }
         }
     }
 }
+
+private val defaultIcons = DsIcons(
+    x = FeatherIcons.X,
+    check = FeatherIcons.Check,
+    arrowLeft = FeatherIcons.ArrowLeft,
+    chevronDown = FeatherIcons.ChevronDown,
+    chevronUp = FeatherIcons.ChevronUp,
+    chevronLeft = FeatherIcons.ChevronLeft,
+    chevronRight = FeatherIcons.ChevronsRight,
+    minus = FeatherIcons.Minus,
+    square = FeatherIcons.Square
+)
+
+private val components = listOf(
+    "Buttons",
+    "Labels",
+    "List Head",
+    "List item",
+    "Artwork (avatar)",
+    "Control",
+    "Navbar",
+    "Card",
+    "Progress",
+    "Input"
+)
