@@ -3,9 +3,14 @@ plugins {
 }
 
 repositories {
-    gradlePluginPortal()
-    google()
+    google{
+        mavenContent {
+            includeGroupByRegex(".*google.*")
+            includeGroupByRegex(".*android.*")
+        }
+    }
     mavenCentral()
+    gradlePluginPortal()
 }
 
 gradlePlugin {
